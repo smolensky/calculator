@@ -1,0 +1,13 @@
+E:\proj\stresscalc\stresscalc\bin\Debug\stresscalc.exe.config
+E:\proj\stresscalc\stresscalc\bin\Debug\stresscalc.exe
+E:\proj\stresscalc\stresscalc\bin\Debug\stresscalc.pdb
+E:\proj\stresscalc\stresscalc\obj\Debug\stresscalc.csprojResolveAssemblyReference.cache
+E:\proj\stresscalc\stresscalc\obj\Debug\MainWindow.baml
+E:\proj\stresscalc\stresscalc\obj\Debug\MainWindow.g.cs
+E:\proj\stresscalc\stresscalc\obj\Debug\App.g.cs
+E:\proj\stresscalc\stresscalc\obj\Debug\stresscalc_MarkupCompile.cache
+E:\proj\stresscalc\stresscalc\obj\Debug\stresscalc.g.resources
+E:\proj\stresscalc\stresscalc\obj\Debug\stresscalc.Properties.Resources.resources
+E:\proj\stresscalc\stresscalc\obj\Debug\stresscalc.csproj.GenerateResource.Cache
+E:\proj\stresscalc\stresscalc\obj\Debug\stresscalc.exe
+E:\proj\stresscalc\stresscalc\obj\Debug\stresscalc.pdb
