@@ -60,47 +60,50 @@ namespace stresscalc
             //showme.Content = Convert.ToString(_preresult);
 
             // TODO: Make work for other signs - i.e. plus, multilpy, divide
-            if (_sign == Sign.Plus)
-                _preresult = _preresult + Convert.ToInt32(screen.Text);
-            else
-                _preresult = Convert.ToInt32(screen.Text);
-
+            MakeCount();
+            
             _sign = Sign.Plus;
 
-
-            trace.Content = trace.Content + "+";
-            screen.Text = "";
-            showme.Content = _preresult;
+            SaveStateAndClearScreen(e);
         }
 
         private void minus_Click(object sender, RoutedEventArgs e)
         {
             // TODO: Make work for other signs - i.e. plus, multilpy, divide
-            if (_sign != Sign.Null)
-                MakeCount();
-            else
-                _preresult = Convert.ToInt32(screen.Text);
-
+            MakeCount();
+            
             _sign = Sign.Minus;
 
+            SaveStateAndClearScreen(e);
+            
+        }
 
-            trace.Content = trace.Content + "-";
+        private void SaveStateAndClearScreen(RoutedEventArgs e)
+        {
+            trace.Content = trace.Content + ((Button) e.Source).Content.ToString();
             screen.Text = "";
             showme.Content = _preresult;
         }
 
         private void MakeCount()
         {
-            switch (_sign)
+            int integerScreenValue;
+
+            if (Int32.TryParse(screen.Text, out integerScreenValue))
             {
-                case Sign.Minus:
-                    _preresult = _preresult - Convert.ToInt32(screen.Text);
-                    break;
-                case Sign.Plus:
-                    _preresult = _preresult + Convert.ToInt32(screen.Text);
-                    break;
+                switch (_sign)
+                {
+                    case Sign.Minus:
+                        _preresult = _preresult - integerScreenValue;
+                        break;
+                    case Sign.Plus:
+                        _preresult = _preresult + integerScreenValue;
+                        break;
+                    case Sign.Null:
+                        _preresult = integerScreenValue;
+                        break;
+                }
             }
-            
         }
     }
 }
