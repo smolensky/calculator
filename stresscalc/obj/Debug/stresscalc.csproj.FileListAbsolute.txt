@@ -11,3 +11,16 @@ E:\proj\stresscalc\stresscalc\obj\Debug\stresscalc.Properties.Resources.resource
 E:\proj\stresscalc\stresscalc\obj\Debug\stresscalc.csproj.GenerateResource.Cache
 E:\proj\stresscalc\stresscalc\obj\Debug\stresscalc.exe
 E:\proj\stresscalc\stresscalc\obj\Debug\stresscalc.pdb
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\bin\Debug\stresscalc.exe.config
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\obj\Debug\stresscalc.exe
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\obj\Debug\stresscalc.pdb
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\bin\Debug\stresscalc.exe
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\bin\Debug\stresscalc.pdb
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\obj\Debug\stresscalc.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\obj\Debug\MainWindow.baml
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\obj\Debug\MainWindow.g.cs
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\obj\Debug\App.g.cs
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\obj\Debug\stresscalc_MarkupCompile.cache
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\obj\Debug\stresscalc.g.resources
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\obj\Debug\stresscalc.Properties.Resources.resources
+C:\Users\Admin\Source\Repos\lookslikefail\stresscalc\obj\Debug\stresscalc.csproj.GenerateResource.Cache
