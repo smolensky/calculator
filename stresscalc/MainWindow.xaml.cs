@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -15,7 +16,7 @@ namespace stresscalc
             InitializeComponent();
         }
 
-        private int _preresult;
+        private double _preresult;
 
         private enum Sign
         {
@@ -38,10 +39,17 @@ namespace stresscalc
 
         private void Number_Click(object sender, RoutedEventArgs e)
         {
-            object buttonNumber = ((Button)e.Source).Content;
+            if (screen.Text.Length <= 7)
+            {
+                object buttonNumber = ((Button)e.Source).Content;
 
-            screen.Text = screen.Text + buttonNumber;
-            trace.Content = trace.Content + buttonNumber.ToString();
+
+                screen.Text = screen.Text + buttonNumber;
+                trace.Content = trace.Content + buttonNumber.ToString();
+                back.IsEnabled = true;
+            }
+            
+            
         }
         
         private void clear_Click(object sender, RoutedEventArgs e)
@@ -53,12 +61,6 @@ namespace stresscalc
 
         private void plus_Click(object sender, RoutedEventArgs e)
         {
-            
-            //trace.Content = trace.Content + "+";
-            //_preresult = _preresult + Convert.ToInt32(screen.Text);
-            //screen.Text = "";
-            //showme.Content = Convert.ToString(_preresult);
-
             // TODO: Make work for other signs - i.e. plus, multilpy, divide
             MakeCount();
             
@@ -87,9 +89,11 @@ namespace stresscalc
 
         private void MakeCount()
         {
-            int integerScreenValue;
+            double integerScreenValue;
 
-            if (Int32.TryParse(screen.Text, out integerScreenValue))
+            back.IsEnabled = false;
+
+            if (double.TryParse(screen.Text, out integerScreenValue))
             {
                 switch (_sign)
                 {
@@ -99,10 +103,64 @@ namespace stresscalc
                     case Sign.Plus:
                         _preresult = _preresult + integerScreenValue;
                         break;
+                    case Sign.Multiply:
+                        _preresult = _preresult * integerScreenValue;
+                        break;
+                    case Sign.Divide:
+                        if (integerScreenValue != 0)
+                            _preresult = _preresult/integerScreenValue;
+                        else
+                            MessageBox.Show("Division by zero");
+                        
+                        break;
                     case Sign.Null:
                         _preresult = integerScreenValue;
                         break;
                 }
+            }
+        }
+
+        private void multi_Click(object sender, RoutedEventArgs e)
+        {
+            MakeCount();
+
+            _sign = Sign.Multiply;
+
+            SaveStateAndClearScreen(e);
+        }
+
+        private void div_Click(object sender, RoutedEventArgs e)
+        {
+            MakeCount();
+
+            _sign = Sign.Divide;
+
+            SaveStateAndClearScreen(e);
+        }
+
+        private void result_Click(object sender, RoutedEventArgs e)
+        {
+            MakeCount();
+
+            _sign = Sign.Null;
+
+            SaveStateAndClearScreen(e);
+            screen.Text = _preresult.ToString(CultureInfo.InvariantCulture);
+            trace.Content = _preresult.ToString(CultureInfo.InvariantCulture);
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            //fix trace label bug
+            if (screen.Text.Length > 1)
+            {
+                screen.Text = screen.Text.Substring(0, screen.Text.Length - 1);
+                trace.Content = screen.Text;
+            }
+            else
+            {
+                screen.Text = "";
+                trace.Content = "";
             }
         }
     }

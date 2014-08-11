@@ -12,17 +12,17 @@
         <Button x:Name="eight" Content="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="93,90,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="five" Content="5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="93,120,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="two" Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="93,150,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
-        <Button Content="," HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="93,180,0,0" FontWeight="Bold" FontSize="16" IsEnabled="False"/>
+        <Button Content="," HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="93,180,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="nine" Content="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="175,90,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="six" Content="6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="175,120,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="three" Content="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="175,150,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="plus" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,90,0,0" FontWeight="Bold" FontSize="16" Click="plus_Click"/>
         <Button x:Name="minus" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="390,90,0,0" FontWeight="Bold" FontSize="16" Click="minus_Click"/>
-        <Button x:Name="multi" Content="*" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,120,0,0" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="div" Content="/" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="390,120,0,0" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="result" Content="=" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,150,0,0" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="multi" Content="*" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,120,0,0" FontWeight="Bold" FontSize="16" Click="multi_Click"/>
+        <Button x:Name="div" Content="/" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="390,120,0,0" FontWeight="Bold" FontSize="16" Click="div_Click"/>
+        <Button x:Name="result" Content="=" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,150,0,0" FontWeight="Bold" FontSize="16" Click="result_Click"/>
         <Button x:Name="clear" Content="clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,180,0,0" FontWeight="Bold" FontSize="16" Click="clear_Click"/>
-        <Button x:Name="back" Content="&lt;-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="390,180,0,0" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="back" Content="&lt;-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="390,180,0,0" FontWeight="Bold" FontSize="16" Click="back_Click"/>
         <Label x:Name="showme" Content="" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Width="204"/>
 
     </Grid>
