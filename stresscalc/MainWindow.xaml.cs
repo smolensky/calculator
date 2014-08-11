@@ -39,12 +39,17 @@ namespace stresscalc
 
         private void Number_Click(object sender, RoutedEventArgs e)
         {
-            object buttonNumber = ((Button)e.Source).Content;
+            if (screen.Text.Length <= 7)
+            {
+                object buttonNumber = ((Button)e.Source).Content;
 
 
-            screen.Text = screen.Text + buttonNumber;
-            trace.Content = trace.Content + buttonNumber.ToString();
-            back.IsEnabled = true;
+                screen.Text = screen.Text + buttonNumber;
+                trace.Content = trace.Content + buttonNumber.ToString();
+                back.IsEnabled = true;
+            }
+            
+            
         }
         
         private void clear_Click(object sender, RoutedEventArgs e)
@@ -146,7 +151,7 @@ namespace stresscalc
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            //should work on extra "0" before number
+            //fix trace label bug
             if (screen.Text.Length > 1)
             {
                 screen.Text = screen.Text.Substring(0, screen.Text.Length - 1);
@@ -154,7 +159,7 @@ namespace stresscalc
             }
             else
             {
-                screen.Text = "0";
+                screen.Text = "";
                 trace.Content = "";
             }
         }
