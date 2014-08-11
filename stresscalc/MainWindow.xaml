@@ -20,7 +20,7 @@
         <Button x:Name="minus" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="390,90,0,0" FontWeight="Bold" FontSize="16" Click="minus_Click"/>
         <Button x:Name="multi" Content="*" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,120,0,0" FontWeight="Bold" FontSize="16" Click="multi_Click"/>
         <Button x:Name="div" Content="/" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="390,120,0,0" FontWeight="Bold" FontSize="16" Click="div_Click"/>
-        <Button x:Name="result" Content="=" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,150,0,0" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="result" Content="=" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,150,0,0" FontWeight="Bold" FontSize="16" Click="result_Click"/>
         <Button x:Name="clear" Content="clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,180,0,0" FontWeight="Bold" FontSize="16" Click="clear_Click"/>
         <Button x:Name="back" Content="&lt;-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="390,180,0,0" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="showme" Content="" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Width="204"/>

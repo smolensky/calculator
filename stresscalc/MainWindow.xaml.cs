@@ -133,5 +133,15 @@ namespace stresscalc
 
             SaveStateAndClearScreen(e);
         }
+
+        private void result_Click(object sender, RoutedEventArgs e)
+        {
+            MakeCount();
+
+            _sign = Sign.Null;
+
+            SaveStateAndClearScreen(e);
+            screen.Text = _preresult.ToString();
+        }
     }
 }
