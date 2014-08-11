@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -40,8 +41,10 @@ namespace stresscalc
         {
             object buttonNumber = ((Button)e.Source).Content;
 
+
             screen.Text = screen.Text + buttonNumber;
             trace.Content = trace.Content + buttonNumber.ToString();
+            back.IsEnabled = true;
         }
         
         private void clear_Click(object sender, RoutedEventArgs e)
@@ -53,12 +56,6 @@ namespace stresscalc
 
         private void plus_Click(object sender, RoutedEventArgs e)
         {
-            
-            //trace.Content = trace.Content + "+";
-            //_preresult = _preresult + Convert.ToInt32(screen.Text);
-            //screen.Text = "";
-            //showme.Content = Convert.ToString(_preresult);
-
             // TODO: Make work for other signs - i.e. plus, multilpy, divide
             MakeCount();
             
@@ -88,6 +85,8 @@ namespace stresscalc
         private void MakeCount()
         {
             int integerScreenValue;
+
+            back.IsEnabled = false;
 
             if (Int32.TryParse(screen.Text, out integerScreenValue))
             {
@@ -141,7 +140,23 @@ namespace stresscalc
             _sign = Sign.Null;
 
             SaveStateAndClearScreen(e);
-            screen.Text = _preresult.ToString();
+            screen.Text = _preresult.ToString(CultureInfo.InvariantCulture);
+            trace.Content = _preresult.ToString(CultureInfo.InvariantCulture);
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            //should work on extra "0" before number
+            if (screen.Text.Length > 1)
+            {
+                screen.Text = screen.Text.Substring(0, screen.Text.Length - 1);
+                trace.Content = screen.Text;
+            }
+            else
+            {
+                screen.Text = "0";
+                trace.Content = "";
+            }
         }
     }
 }
