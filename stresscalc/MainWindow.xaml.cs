@@ -99,11 +99,39 @@ namespace stresscalc
                     case Sign.Plus:
                         _preresult = _preresult + integerScreenValue;
                         break;
+                    case Sign.Multiply:
+                        _preresult = _preresult * integerScreenValue;
+                        break;
+                    case Sign.Divide:
+                        if (integerScreenValue != 0)
+                            _preresult = _preresult/integerScreenValue;
+                        else
+                            MessageBox.Show("Division by zero");
+                        
+                        break;
                     case Sign.Null:
                         _preresult = integerScreenValue;
                         break;
                 }
             }
+        }
+
+        private void multi_Click(object sender, RoutedEventArgs e)
+        {
+            MakeCount();
+
+            _sign = Sign.Multiply;
+
+            SaveStateAndClearScreen(e);
+        }
+
+        private void div_Click(object sender, RoutedEventArgs e)
+        {
+            MakeCount();
+
+            _sign = Sign.Divide;
+
+            SaveStateAndClearScreen(e);
         }
     }
 }
