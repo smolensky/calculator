@@ -16,7 +16,7 @@ namespace stresscalc
             InitializeComponent();
         }
 
-        private int _preresult;
+        private double _preresult;
 
         private enum Sign
         {
@@ -89,11 +89,11 @@ namespace stresscalc
 
         private void MakeCount()
         {
-            int integerScreenValue;
+            double integerScreenValue;
 
             back.IsEnabled = false;
 
-            if (Int32.TryParse(screen.Text, out integerScreenValue))
+            if (double.TryParse(screen.Text, out integerScreenValue))
             {
                 switch (_sign)
                 {
