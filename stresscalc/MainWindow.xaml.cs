@@ -17,6 +17,7 @@ namespace stresscalc
         }
 
         private double _preresult;
+        private bool _displayResult;
 
         private enum Sign
         {
@@ -45,7 +46,7 @@ namespace stresscalc
 
 
                 screen.Text = screen.Text + buttonNumber;
-                trace.Content = trace.Content + buttonNumber.ToString();
+                trace.Text = trace.Text + buttonNumber;
                 back.IsEnabled = true;
             }
             
@@ -55,8 +56,9 @@ namespace stresscalc
         private void clear_Click(object sender, RoutedEventArgs e)
         {
             screen.Text = "";
-            trace.Content = "";
+            trace.Text = "";
             _preresult = 0;
+            
         }
 
         private void plus_Click(object sender, RoutedEventArgs e)
@@ -82,7 +84,7 @@ namespace stresscalc
 
         private void SaveStateAndClearScreen(RoutedEventArgs e)
         {
-            trace.Content = trace.Content + ((Button) e.Source).Content.ToString();
+            trace.Text = trace.Text + ((Button) e.Source).Content;
             screen.Text = "";
             showme.Content = _preresult;
         }
@@ -92,7 +94,7 @@ namespace stresscalc
             double integerScreenValue;
 
             back.IsEnabled = false;
-
+            
             if (double.TryParse(screen.Text, out integerScreenValue))
             {
                 switch (_sign)
@@ -107,7 +109,7 @@ namespace stresscalc
                         _preresult = _preresult * integerScreenValue;
                         break;
                     case Sign.Divide:
-                        if (integerScreenValue != 0)
+                        if (Math.Abs(integerScreenValue) > 0)
                             _preresult = _preresult/integerScreenValue;
                         else
                             MessageBox.Show("Division by zero");
@@ -146,7 +148,7 @@ namespace stresscalc
 
             SaveStateAndClearScreen(e);
             screen.Text = _preresult.ToString(CultureInfo.InvariantCulture);
-            trace.Content = _preresult.ToString(CultureInfo.InvariantCulture);
+            trace.Text = _preresult.ToString(CultureInfo.InvariantCulture);
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
@@ -155,12 +157,12 @@ namespace stresscalc
             if (screen.Text.Length > 1)
             {
                 screen.Text = screen.Text.Substring(0, screen.Text.Length - 1);
-                trace.Content = screen.Text;
+                trace.Text = trace.Text.Substring(0, trace.Text.Length - 1);
             }
             else
             {
                 screen.Text = "";
-                trace.Content = "";
+                trace.Text = "";
             }
         }
     }
