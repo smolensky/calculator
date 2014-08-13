@@ -53,18 +53,45 @@ namespace stresscalc
             
             
         }
+
+        private void point_Click(object sender, RoutedEventArgs e)
+        {
+            if (screen.Text.Length <= 7 && screen.Text.Length > 0)
+            {
+                object buttonNumber = ((Button)e.Source).Content;
+
+
+                screen.Text = screen.Text + buttonNumber;
+                trace.Text = trace.Text + buttonNumber;
+                back.IsEnabled = true;
+                _operationUsed = false;
+            }
+            else
+            {
+                object buttonNumber = ((Button)e.Source).Content;
+
+
+                screen.Text = screen.Text + "0" + buttonNumber;
+                trace.Text = trace.Text + "0" + buttonNumber;
+                back.IsEnabled = true;
+                _operationUsed = false;
+            }
+
+            point.IsEnabled = false;
+
+        }
         
         private void clear_Click(object sender, RoutedEventArgs e)
         {
             screen.Text = "";
             trace.Text = "";
             _preresult = 0;
-            
+            point.IsEnabled = true;
+
         }
 
         private void plus_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: Make work for other signs - i.e. plus, multilpy, divide
             MakeCount();
 
             WritingTheOnlyMathOperation();
@@ -76,7 +103,6 @@ namespace stresscalc
 
         private void minus_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: Make work for other signs - i.e. plus, multilpy, divide
             MakeCount();
 
             WritingTheOnlyMathOperation();
@@ -145,6 +171,7 @@ namespace stresscalc
             double integerScreenValue;
 
             back.IsEnabled = false;
+            point.IsEnabled = true;
 
             if (double.TryParse(screen.Text, out integerScreenValue))
             {
@@ -178,5 +205,6 @@ namespace stresscalc
             screen.Text = "";
             showme.Content = _preresult;
         }
+        
     }
 }

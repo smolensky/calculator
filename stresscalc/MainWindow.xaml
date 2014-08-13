@@ -12,7 +12,7 @@
         <Button x:Name="eight" Content="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="93,90,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="five" Content="5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="93,120,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="two" Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="93,150,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
-        <Button x:Name="point" Content="," HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="93,180,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
+        <Button x:Name="point" Content="," HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="93,180,0,0" FontWeight="Bold" FontSize="16" Click="point_Click"/>
         <Button x:Name="nine" Content="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="175,90,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="six" Content="6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="175,120,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="three" Content="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="175,150,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
