@@ -74,13 +74,6 @@ namespace stresscalc
             SaveStateAndClearScreen(e);
         }
 
-        private void WritingTheOnlyMathOperation()
-        {
-            if (_operationUsed == true)
-                trace.Text = trace.Text.Substring(0, trace.Text.Length - 1);
-            _operationUsed = true;
-        }
-
         private void minus_Click(object sender, RoutedEventArgs e)
         {
             // TODO: Make work for other signs - i.e. plus, multilpy, divide
@@ -93,46 +86,7 @@ namespace stresscalc
             SaveStateAndClearScreen(e);
             
         }
-
-        private void SaveStateAndClearScreen(RoutedEventArgs e)
-        {
-            trace.Text = trace.Text + ((Button) e.Source).Content;
-            screen.Text = "";
-            showme.Content = _preresult;
-        }
-
-        private void MakeCount()
-        {
-            double integerScreenValue;
-
-            back.IsEnabled = false;
-            
-            if (double.TryParse(screen.Text, out integerScreenValue))
-            {
-                switch (_sign)
-                {
-                    case Sign.Minus:
-                        _preresult = _preresult - integerScreenValue;
-                        break;
-                    case Sign.Plus:
-                        _preresult = _preresult + integerScreenValue;
-                        break;
-                    case Sign.Multiply:
-                        _preresult = _preresult * integerScreenValue;
-                        break;
-                    case Sign.Divide:
-                        if (Math.Abs(integerScreenValue) > 0)
-                            _preresult = _preresult/integerScreenValue;
-                        else
-                            MessageBox.Show("Division by zero");
-                        break;
-                    case Sign.Null:
-                        _preresult = integerScreenValue;
-                        break;
-                }
-            }
-        }
-
+        
         private void multi_Click(object sender, RoutedEventArgs e)
         {
             MakeCount();
@@ -168,7 +122,6 @@ namespace stresscalc
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            //fix trace label bug
             if (screen.Text.Length > 1)
             {
                 screen.Text = screen.Text.Substring(0, screen.Text.Length - 1);
@@ -179,6 +132,52 @@ namespace stresscalc
                 screen.Text = "";
                 trace.Text = "";
             }
+        }
+
+        private void WritingTheOnlyMathOperation()
+        {
+            if (_operationUsed)
+                trace.Text = trace.Text.Substring(0, trace.Text.Length - 1);
+            _operationUsed = true;
+        }
+
+        private void MakeCount()
+        {
+            double integerScreenValue;
+
+            back.IsEnabled = false;
+
+            if (double.TryParse(screen.Text, out integerScreenValue))
+            {
+                switch (_sign)
+                {
+                    case Sign.Minus:
+                        _preresult = _preresult - integerScreenValue;
+                        break;
+                    case Sign.Plus:
+                        _preresult = _preresult + integerScreenValue;
+                        break;
+                    case Sign.Multiply:
+                        _preresult = _preresult * integerScreenValue;
+                        break;
+                    case Sign.Divide:
+                        if (Math.Abs(integerScreenValue) > 0)
+                            _preresult = _preresult / integerScreenValue;
+                        else
+                            MessageBox.Show("Division by zero");
+                        break;
+                    case Sign.Null:
+                        _preresult = integerScreenValue;
+                        break;
+                }
+            }
+        }
+
+        private void SaveStateAndClearScreen(RoutedEventArgs e)
+        {
+            trace.Text = trace.Text + ((Button)e.Source).Content;
+            screen.Text = "";
+            showme.Content = _preresult;
         }
     }
 }
