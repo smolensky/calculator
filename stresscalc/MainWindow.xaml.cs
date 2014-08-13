@@ -123,15 +123,14 @@ namespace stresscalc
         private void back_Click(object sender, RoutedEventArgs e)
         {
             if (screen.Text.Length > 1)
-            {
                 screen.Text = screen.Text.Substring(0, screen.Text.Length - 1);
-                trace.Text = trace.Text.Substring(0, trace.Text.Length - 1);
-            }
             else
             {
                 screen.Text = "";
-                trace.Text = "";
+                back.IsEnabled = false;
             }
+
+            trace.Text = trace.Text.Substring(0, trace.Text.Length - 1);
         }
 
         private void WritingTheOnlyMathOperation()
