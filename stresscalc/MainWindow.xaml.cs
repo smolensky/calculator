@@ -17,7 +17,7 @@ namespace stresscalc
         }
 
         private double _preresult;
-        private bool _displayResult;
+        private bool _operationUsed;
 
         private enum Sign
         {
@@ -48,6 +48,7 @@ namespace stresscalc
                 screen.Text = screen.Text + buttonNumber;
                 trace.Text = trace.Text + buttonNumber;
                 back.IsEnabled = true;
+                _operationUsed = false;
             }
             
             
@@ -65,17 +66,28 @@ namespace stresscalc
         {
             // TODO: Make work for other signs - i.e. plus, multilpy, divide
             MakeCount();
-            
+
+            WritingTheOnlyMathOperation();
+
             _sign = Sign.Plus;
 
             SaveStateAndClearScreen(e);
+        }
+
+        private void WritingTheOnlyMathOperation()
+        {
+            if (_operationUsed == true)
+                trace.Text = trace.Text.Substring(0, trace.Text.Length - 1);
+            _operationUsed = true;
         }
 
         private void minus_Click(object sender, RoutedEventArgs e)
         {
             // TODO: Make work for other signs - i.e. plus, multilpy, divide
             MakeCount();
-            
+
+            WritingTheOnlyMathOperation();
+
             _sign = Sign.Minus;
 
             SaveStateAndClearScreen(e);
@@ -113,7 +125,6 @@ namespace stresscalc
                             _preresult = _preresult/integerScreenValue;
                         else
                             MessageBox.Show("Division by zero");
-                        
                         break;
                     case Sign.Null:
                         _preresult = integerScreenValue;
@@ -126,6 +137,8 @@ namespace stresscalc
         {
             MakeCount();
 
+            WritingTheOnlyMathOperation();
+
             _sign = Sign.Multiply;
 
             SaveStateAndClearScreen(e);
@@ -134,6 +147,8 @@ namespace stresscalc
         private void div_Click(object sender, RoutedEventArgs e)
         {
             MakeCount();
+
+            WritingTheOnlyMathOperation();
 
             _sign = Sign.Divide;
 

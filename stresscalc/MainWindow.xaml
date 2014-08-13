@@ -5,7 +5,7 @@
     <Grid>
         <TextBox x:Name="screen" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Margin="10,36,0,0" IsEnabled="False" FontWeight="Bold" FontSize="22"/>
         <Button x:Name="seven" Content="7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,90,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
-        <TextBox x:Name="trace" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="300" IsEnabled="False" Height="21"/>
+        <TextBox x:Name="trace" Text="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="300" IsEnabled="False" Height="21" BorderBrush="{x:Null}"/>
         <Button x:Name="four" Content="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,120,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="one" Content="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,150,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
         <Button x:Name="zero" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,180,0,0" FontWeight="Bold" FontSize="16" Click="Number_Click"/>
