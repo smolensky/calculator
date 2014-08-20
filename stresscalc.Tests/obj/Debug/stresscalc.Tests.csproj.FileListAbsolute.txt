@@ -1,0 +1,9 @@
+D:\Projects\lookslikefail\stresscalc.Tests\bin\Debug\stresscalc.Tests.dll
+D:\Projects\lookslikefail\stresscalc.Tests\bin\Debug\stresscalc.Tests.pdb
+D:\Projects\lookslikefail\stresscalc.Tests\bin\Debug\xunit.dll
+D:\Projects\lookslikefail\stresscalc.Tests\bin\Debug\xunit.xml
+D:\Projects\lookslikefail\stresscalc.Tests\obj\Debug\stresscalc.Tests.csprojResolveAssemblyReference.cache
+D:\Projects\lookslikefail\stresscalc.Tests\obj\Debug\stresscalc.Tests.dll
+D:\Projects\lookslikefail\stresscalc.Tests\obj\Debug\stresscalc.Tests.pdb
+D:\Projects\lookslikefail\stresscalc.Tests\bin\Debug\stresscalc.exe
+D:\Projects\lookslikefail\stresscalc.Tests\bin\Debug\stresscalc.pdb
