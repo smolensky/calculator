@@ -14,6 +14,7 @@ namespace stresscalc
         public MainWindow()
         {
             InitializeComponent();
+            _calculator = new Calculator();
         }
 
         private double _currentValue;
@@ -37,6 +38,8 @@ namespace stresscalc
         }
 
         private Sign _sign;
+
+        private readonly Calculator _calculator;
 
         private void Number_Click(object sender, RoutedEventArgs e)
         {
@@ -164,19 +167,19 @@ namespace stresscalc
                 switch (_sign)
                 {
                     case Sign.Minus:
-                        _currentValue = Substract(_currentValue, inputValue);
+                        _currentValue = _calculator.Substract(_currentValue, inputValue);
                         break;
                     case Sign.Plus:
-                        _currentValue = Add(_currentValue, inputValue);
+                        _currentValue = _calculator.Add(_currentValue, inputValue);
                         break;
                     case Sign.Multiply:
-                        _currentValue = Multiply(_currentValue, inputValue);
+                        _currentValue = _calculator.Multiply(_currentValue, inputValue);
                         break;
                     case Sign.Divide:
-                        double result;
+                        double divisionResult;
 
-                        if (TryDivide(_currentValue, inputValue, out result))
-                            _currentValue = result;
+                        if (_calculator.TryDivide(_currentValue, inputValue, out divisionResult))
+                            _currentValue = divisionResult;
                         else
                             MessageBox.Show("Division by zero");
 
@@ -187,35 +190,6 @@ namespace stresscalc
                         break;
                 }
             }
-        }
-
-        private bool TryDivide(double firstNumber, double secondNumber, out double result)
-        {
-            if (secondNumber != 0)
-            {
-                result = firstNumber/secondNumber;
-
-                return true;
-            }
-
-            result = 0;
-
-            return false;
-        }
-
-        private double Multiply(double firstNumber, double secondNumber)
-        {
-            return firstNumber * secondNumber;
-        }
-
-        private double Add(double firstNumber, double secondNumber)
-        {
-            return firstNumber + secondNumber;
-        }
-
-        private double Substract(double firstNumber, double secondNumber)
-        {
-            return firstNumber - secondNumber;
         }
 
         private void SaveStateAndClearScreen(RoutedEventArgs e)
