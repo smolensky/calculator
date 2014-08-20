@@ -16,7 +16,7 @@ namespace stresscalc
             InitializeComponent();
         }
 
-        private double _preresult;
+        private double _currentValue;
         private bool _operationUsed;
 
         private enum Sign
@@ -85,52 +85,38 @@ namespace stresscalc
         {
             screen.Text = "";
             trace.Text = "";
-            _preresult = 0;
+            _currentValue = 0;
             point.IsEnabled = true;
 
         }
 
         private void plus_Click(object sender, RoutedEventArgs e)
         {
-            MakeCount();
-
-            WritingTheOnlyMathOperation();
-
-            _sign = Sign.Plus;
-
-            SaveStateAndClearScreen(e);
+            ExecuteMathOperation(e, Sign.Plus);
         }
 
         private void minus_Click(object sender, RoutedEventArgs e)
         {
-            MakeCount();
-
-            WritingTheOnlyMathOperation();
-
-            _sign = Sign.Minus;
-
-            SaveStateAndClearScreen(e);
-            
+            ExecuteMathOperation(e, Sign.Minus);
         }
-        
+
         private void multi_Click(object sender, RoutedEventArgs e)
         {
-            MakeCount();
-
-            WritingTheOnlyMathOperation();
-
-            _sign = Sign.Multiply;
-
-            SaveStateAndClearScreen(e);
+            ExecuteMathOperation(e, Sign.Multiply);
         }
 
         private void div_Click(object sender, RoutedEventArgs e)
         {
+            ExecuteMathOperation(e, Sign.Divide);
+        }
+
+        private void ExecuteMathOperation(RoutedEventArgs e, Sign operationSign)
+        {
             MakeCount();
 
             WritingTheOnlyMathOperation();
 
-            _sign = Sign.Divide;
+            _sign = operationSign;
 
             SaveStateAndClearScreen(e);
         }
@@ -142,8 +128,8 @@ namespace stresscalc
             _sign = Sign.Null;
 
             SaveStateAndClearScreen(e);
-            screen.Text = _preresult.ToString(CultureInfo.InvariantCulture);
-            trace.Text = _preresult.ToString(CultureInfo.InvariantCulture);
+            screen.Text = _currentValue.ToString(CultureInfo.InvariantCulture);
+            trace.Text = _currentValue.ToString(CultureInfo.InvariantCulture);
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
@@ -168,42 +154,75 @@ namespace stresscalc
 
         private void MakeCount()
         {
-            double integerScreenValue;
+            double inputValue;
 
             back.IsEnabled = false;
             point.IsEnabled = true;
 
-            if (double.TryParse(screen.Text, out integerScreenValue))
+            if (double.TryParse(screen.Text, out inputValue))
             {
                 switch (_sign)
                 {
                     case Sign.Minus:
-                        _preresult = _preresult - integerScreenValue;
+                        _currentValue = Substract(_currentValue, inputValue);
                         break;
                     case Sign.Plus:
-                        _preresult = _preresult + integerScreenValue;
+                        _currentValue = Add(_currentValue, inputValue);
                         break;
                     case Sign.Multiply:
-                        _preresult = _preresult * integerScreenValue;
+                        _currentValue = Multiply(_currentValue, inputValue);
                         break;
                     case Sign.Divide:
-                        if (Math.Abs(integerScreenValue) > 0)
-                            _preresult = _preresult / integerScreenValue;
+                        double result;
+
+                        if (TryDivide(_currentValue, inputValue, out result))
+                            _currentValue = result;
                         else
                             MessageBox.Show("Division by zero");
+
                         break;
+
                     case Sign.Null:
-                        _preresult = integerScreenValue;
+                        _currentValue = inputValue;
                         break;
                 }
             }
+        }
+
+        private bool TryDivide(double firstNumber, double secondNumber, out double result)
+        {
+            if (secondNumber != 0)
+            {
+                result = firstNumber/secondNumber;
+
+                return true;
+            }
+
+            result = 0;
+
+            return false;
+        }
+
+        private double Multiply(double firstNumber, double secondNumber)
+        {
+            return firstNumber * secondNumber;
+        }
+
+        private double Add(double firstNumber, double secondNumber)
+        {
+            return firstNumber + secondNumber;
+        }
+
+        private double Substract(double firstNumber, double secondNumber)
+        {
+            return firstNumber - secondNumber;
         }
 
         private void SaveStateAndClearScreen(RoutedEventArgs e)
         {
             trace.Text = trace.Text + ((Button)e.Source).Content;
             screen.Text = "";
-            showme.Content = _preresult;
+            showme.Content = _currentValue;
         }
         
     }
