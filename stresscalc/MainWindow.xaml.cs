@@ -14,7 +14,7 @@ namespace stresscalc
         public MainWindow()
         {
             InitializeComponent();
-            _calculator = new Calculator();
+            _calculationService = new Calculator.Core.CalculationService();
         }
 
         private double _currentValue;
@@ -39,7 +39,7 @@ namespace stresscalc
 
         private Sign _sign;
 
-        private readonly Calculator _calculator;
+        private readonly Calculator.Core.CalculationService _calculationService;
 
         private void Number_Click(object sender, RoutedEventArgs e)
         {
@@ -167,18 +167,18 @@ namespace stresscalc
                 switch (_sign)
                 {
                     case Sign.Minus:
-                        _currentValue = _calculator.Substract(_currentValue, inputValue);
+                        _currentValue = _calculationService.Substract(_currentValue, inputValue);
                         break;
                     case Sign.Plus:
-                        _currentValue = _calculator.Add(_currentValue, inputValue);
+                        _currentValue = _calculationService.Add(_currentValue, inputValue);
                         break;
                     case Sign.Multiply:
-                        _currentValue = _calculator.Multiply(_currentValue, inputValue);
+                        _currentValue = _calculationService.Multiply(_currentValue, inputValue);
                         break;
                     case Sign.Divide:
                         double divisionResult;
 
-                        if (_calculator.TryDivide(_currentValue, inputValue, out divisionResult))
+                        if (_calculationService.TryDivide(_currentValue, inputValue, out divisionResult))
                             _currentValue = divisionResult;
                         else
                             MessageBox.Show("Division by zero");

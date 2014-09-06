@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stresscalc.Tests", "stressc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcCalculator", "MvcCalculator\MvcCalculator.csproj", "{80839D15-E883-493F-8117-EA2BA578AF49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Core", "Calculator.Core\Calculator.Core.csproj", "{7E3DD520-A8DE-4B58-B14E-E5C8333A7897}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{80839D15-E883-493F-8117-EA2BA578AF49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80839D15-E883-493F-8117-EA2BA578AF49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80839D15-E883-493F-8117-EA2BA578AF49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E3DD520-A8DE-4B58-B14E-E5C8333A7897}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E3DD520-A8DE-4B58-B14E-E5C8333A7897}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E3DD520-A8DE-4B58-B14E-E5C8333A7897}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E3DD520-A8DE-4B58-B14E-E5C8333A7897}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MvcCalculator.Models
 {
-    public class CalcModel
+    public class CalcViewModel
     {
         public int FirstNumber { get; set; }
         public int SecondNumber { get; set; }

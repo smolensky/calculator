@@ -7,3 +7,14 @@ D:\Projects\lookslikefail\stresscalc.Tests\obj\Debug\stresscalc.Tests.dll
 D:\Projects\lookslikefail\stresscalc.Tests\obj\Debug\stresscalc.Tests.pdb
 D:\Projects\lookslikefail\stresscalc.Tests\bin\Debug\stresscalc.exe
 D:\Projects\lookslikefail\stresscalc.Tests\bin\Debug\stresscalc.pdb
+E:\proj\calculator\stresscalc.Tests\bin\Debug\stresscalc.Tests.dll
+E:\proj\calculator\stresscalc.Tests\bin\Debug\stresscalc.Tests.pdb
+E:\proj\calculator\stresscalc.Tests\bin\Debug\Calculator.Core.dll
+E:\proj\calculator\stresscalc.Tests\bin\Debug\stresscalc.exe
+E:\proj\calculator\stresscalc.Tests\bin\Debug\xunit.dll
+E:\proj\calculator\stresscalc.Tests\bin\Debug\Calculator.Core.pdb
+E:\proj\calculator\stresscalc.Tests\bin\Debug\stresscalc.pdb
+E:\proj\calculator\stresscalc.Tests\bin\Debug\xunit.xml
+E:\proj\calculator\stresscalc.Tests\obj\Debug\stresscalc.Tests.csprojResolveAssemblyReference.cache
+E:\proj\calculator\stresscalc.Tests\obj\Debug\stresscalc.Tests.dll
+E:\proj\calculator\stresscalc.Tests\obj\Debug\stresscalc.Tests.pdb

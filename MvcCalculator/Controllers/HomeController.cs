@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcCalculator.Models;
+
+using  Calculator.Core;
 
 namespace MvcCalculator.Controllers
 {
@@ -17,23 +20,24 @@ namespace MvcCalculator.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(CalcModel model)
+        public ActionResult Index(CalcViewModel viewModel)
         {
             string result = string.Empty;
-            switch (model.Action)
+            switch (viewModel.Action)
             {
                 case "+":
-                    result = (model.FirstNumber + model.SecondNumber).ToString(CultureInfo.InvariantCulture);
+                    result = new CalculationService().Add(viewModel.FirstNumber, viewModel.SecondNumber).ToString();
+                //(viewModel.FirstNumber + viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
                     break;
-                case "-":
-                    result = (model.FirstNumber - model.SecondNumber).ToString(CultureInfo.InvariantCulture);
-                    break;
-                case "*":
-                    result = (model.FirstNumber * model.SecondNumber).ToString(CultureInfo.InvariantCulture);
-                    break;
-                case "/":
-                    result = (model.FirstNumber / model.SecondNumber).ToString(CultureInfo.InvariantCulture);
-                    break;
+                //case "-":
+                //    result = (viewModel.FirstNumber - viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
+                //    break;
+                //case "*":
+                //    result = (viewModel.FirstNumber * viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
+                //    break;
+                //case "/":
+                //    result = (viewModel.FirstNumber / viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
+                //    break;
             }
 
             ViewBag.Result = result;

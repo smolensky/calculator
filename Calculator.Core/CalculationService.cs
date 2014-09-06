@@ -1,6 +1,6 @@
-namespace stresscalc
+namespace Calculator.Core
 {
-    public class Calculator
+    public class CalculationService
     {
         public double Substract(double firstNumber, double secondNumber)
         {

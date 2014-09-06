@@ -8,7 +8,7 @@ namespace stresscalc.Tests
         private void Should_substract_second_number_from_first_number_Always()
         {
             // Arrange
-            var calculator = new Calculator();
+            var calculator = new Calculator.Core.CalculationService();
 
             // Act
             double actual = calculator.Substract(10, 3);
@@ -24,7 +24,7 @@ namespace stresscalc.Tests
             
             double actual;
 
-            var calculator = new Calculator();
+            var calculator = new Calculator.Core.CalculationService();
 
             // Act
             calculator.TryDivide(10, 5, out actual);
@@ -41,7 +41,7 @@ namespace stresscalc.Tests
             bool isDivisible;
             double actual;
 
-            var calculator = new Calculator();
+            var calculator = new Calculator.Core.CalculationService();
 
             // Act
             isDivisible = calculator.TryDivide(10, 5, out actual);
