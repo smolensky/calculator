@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
@@ -117,7 +116,7 @@ namespace stresscalc
         {
             MakeCount();
 
-            WritingTheOnlyMathOperation();
+            WriteTheOnlyMathOperation();
 
             _sign = operationSign;
 
@@ -148,7 +147,7 @@ namespace stresscalc
             trace.Text = trace.Text.Substring(0, trace.Text.Length - 1);
         }
 
-        private void WritingTheOnlyMathOperation()
+        private void WriteTheOnlyMathOperation()
         {
             if (_operationUsed)
                 trace.Text = trace.Text.Substring(0, trace.Text.Length - 1);

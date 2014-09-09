@@ -10,5 +10,6 @@ namespace MvcCalculator.Models
         public int FirstNumber { get; set; }
         public int SecondNumber { get; set; }
         public string Action { get; set; }
+        public bool result { get; set; }
     }
 }

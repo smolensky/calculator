@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
-using System.Web;
+﻿using System.Globalization;
 using System.Web.Mvc;
 using MvcCalculator.Models;
 
@@ -26,18 +21,23 @@ namespace MvcCalculator.Controllers
             switch (viewModel.Action)
             {
                 case "+":
-                    result = new CalculationService().Add(viewModel.FirstNumber, viewModel.SecondNumber).ToString();
+                    result = new CalculationService().Add(viewModel.FirstNumber, viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
                 //(viewModel.FirstNumber + viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
                     break;
-                //case "-":
+                case "-":
+                    result = new CalculationService().Substract(viewModel.FirstNumber, viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
                 //    result = (viewModel.FirstNumber - viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
-                //    break;
-                //case "*":
+                    break;
+                case "*":
+                    result = new CalculationService().Multiply(viewModel.FirstNumber, viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
                 //    result = (viewModel.FirstNumber * viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
-                //    break;
-                //case "/":
-                //    result = (viewModel.FirstNumber / viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
-                //    break;
+                    break;
+                case "/":
+                    double divisionResult;
+                    result = new CalculationService().TryDivide(viewModel.FirstNumber, viewModel.SecondNumber,
+                        out divisionResult) ? divisionResult.ToString(CultureInfo.InvariantCulture) : "Division by zero";
+                    //    result = (viewModel.FirstNumber / viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
+                    break;
             }
 
             ViewBag.Result = result;
