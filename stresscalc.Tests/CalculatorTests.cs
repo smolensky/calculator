@@ -1,57 +1,56 @@
-﻿using Xunit;
+﻿using Calculator.Core;
+using Xunit;
 
 namespace stresscalc.Tests
 {
     public class CalculatorTests
     {
+        private readonly CalculationService  _calculator = new CalculationService();
+        double _actual;
         [Fact]
         private void Should_substract_second_number_from_first_number_Always()
         {
-            // Arrange
-            var calculator = new Calculator.Core.CalculationService();
+            Assert.Equal(7, _calculator.Substract(10, 3));
+        }
 
-            // Act
-            double actual = calculator.Substract(10, 3);
+        [Fact]
+        private void Should_add_second_number_to_first_number_Always()
+        {
+            Assert.Equal(13, _calculator.Add(10, 3));
+        }
 
-            // Assert
-            Assert.Equal(7, actual);
+        [Fact]
+        private void Should_multiply_first_number_on_second_number_Always()
+        {
+            Assert.Equal(30, _calculator.Multiply(10, 3));
         }
 
         [Fact]
         private void Should_divide_first_number_by_second_number_When_second_number_is_not_zero()
         {
-            // Arrange
-            
-            double actual;
+            _calculator.TryDivide(10, 5, out _actual);
 
-            var calculator = new Calculator.Core.CalculationService();
-
-            // Act
-            calculator.TryDivide(10, 5, out actual);
-
-            // Assert
-            Assert.Equal(2, actual);
-           
+            Assert.Equal(2, _actual);
         }
 
         [Fact]
         private void Should_return_true_when_Divide_method_called_and_second_number_is_not_zero()
         {
-            // Arrange
-            bool isDivisible;
-            double actual;
-
-            var calculator = new Calculator.Core.CalculationService();
-
-            // Act
-            isDivisible = calculator.TryDivide(10, 5, out actual);
-
-            // Assert
-             Assert.Equal(true, isDivisible);
+             Assert.Equal(true, _calculator.TryDivide(10, 5, out _actual));
         }
 
-        // TODO: all other methods, check for zero case for division
+        [Fact]
+        private void Should_return_false_when_Divide_method_called_and_second_number_is_zero()
+        {
+            Assert.Equal(false, _calculator.TryDivide(10, 0, out _actual));
+        }
 
+        [Fact]
+        private void Should_return_zero_When_second_number_is_zero()
+        {
+            _calculator.TryDivide(10, 0, out _actual);
 
+            Assert.Equal(0, _actual);
+        }
     }
 }
