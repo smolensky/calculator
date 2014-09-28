@@ -1,15 +1,15 @@
 namespace Calculator.Core
 {
-    public class CalculationService
+    public class CalculationService : ICalculationService
     {
-        public double Substract(double firstNumber, double secondNumber)
-        {
-            return firstNumber - secondNumber;
-        }
-
         public double Add(double firstNumber, double secondNumber)
         {
             return firstNumber + secondNumber;
+        }
+
+        public double Substract(double firstNumber, double secondNumber)
+        {
+            return firstNumber - secondNumber;
         }
 
         public double Multiply(double firstNumber, double secondNumber)

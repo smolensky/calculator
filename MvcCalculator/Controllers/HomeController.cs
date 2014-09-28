@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Web.Mvc;
+using Calculator.Repo;
 using MvcCalculator.Models;
 
 using  Calculator.Core;
@@ -21,7 +22,8 @@ namespace MvcCalculator.Controllers
             switch (viewModel.Action)
             {
                 case "+":
-                    result = new CalculationService().Add(viewModel.FirstNumber, viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
+                    var calculationService = new LoggingCalculationService(new CalculationService(), new CalculationHistoryRepo());
+                    result = calculationService.Add(viewModel.FirstNumber, viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
                 //(viewModel.FirstNumber + viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
                     break;
                 case "-":

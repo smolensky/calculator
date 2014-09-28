@@ -40,7 +40,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculationService.cs" />
+    <Compile Include="ICalculationService.cs" />
+    <Compile Include="LoggingCalculationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Calculator.Entities\Calculator.Entities.csproj">
+      <Project>{E6916D53-9332-439B-8D15-85CB423286E3}</Project>
+      <Name>Calculator.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Calculator.Repo\Calculator.Repo.csproj">
+      <Project>{AB0E0159-72FB-4620-AB35-7228AD0BE65B}</Project>
+      <Name>Calculator.Repo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
