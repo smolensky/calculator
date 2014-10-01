@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MvcCalculator.Models
+﻿namespace MvcCalculator.Models
 {
     public class CalcViewModel
     {
-        public int FirstNumber { get; set; }
-        public int SecondNumber { get; set; }
+        public double FirstNumber { get; set; }
+        public double SecondNumber { get; set; }
         public string Action { get; set; }
-        public bool result { get; set; }
+        public bool Result { get; set; }
     }
 }

@@ -18,27 +18,30 @@ namespace MvcCalculator.Controllers
         [HttpPost]
         public ActionResult Index(CalcViewModel viewModel)
         {
+            var calculationService = new LoggingCalculationService(
+                        new CalculationService(),
+                        new CalculationHistoryRepo());
+
             string result = string.Empty;
+
             switch (viewModel.Action)
             {
                 case "+":
-                    var calculationService = new LoggingCalculationService(new CalculationService(), new CalculationHistoryRepo());
-                    result = calculationService.Add(viewModel.FirstNumber, viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
-                //(viewModel.FirstNumber + viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
+                    result = calculationService.Add(viewModel.FirstNumber, viewModel.SecondNumber)
+                        .ToString(CultureInfo.InvariantCulture);
                     break;
                 case "-":
-                    result = new CalculationService().Substract(viewModel.FirstNumber, viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
-                //    result = (viewModel.FirstNumber - viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
+                    result = calculationService.Substract(viewModel.FirstNumber, viewModel.SecondNumber)
+                        .ToString(CultureInfo.InvariantCulture);
                     break;
                 case "*":
-                    result = new CalculationService().Multiply(viewModel.FirstNumber, viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
-                //    result = (viewModel.FirstNumber * viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
+                    result = calculationService.Multiply(viewModel.FirstNumber, viewModel.SecondNumber)
+                        .ToString(CultureInfo.InvariantCulture);
                     break;
                 case "/":
                     double divisionResult;
-                    result = new CalculationService().TryDivide(viewModel.FirstNumber, viewModel.SecondNumber,
+                    result = calculationService.TryDivide(viewModel.FirstNumber, viewModel.SecondNumber,
                         out divisionResult) ? divisionResult.ToString(CultureInfo.InvariantCulture) : "Division by zero";
-                    //    result = (viewModel.FirstNumber / viewModel.SecondNumber).ToString(CultureInfo.InvariantCulture);
                     break;
             }
 

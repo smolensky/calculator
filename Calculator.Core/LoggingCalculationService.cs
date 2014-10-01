@@ -17,7 +17,7 @@ namespace Calculator.Core
 
         public double Add(double firstNumber, double secondNumber)
         {
-            double result = _core.Add(firstNumber, secondNumber);
+            var result = _core.Add(firstNumber, secondNumber);
 
             _repo.Save(new CalculationActionDto(firstNumber, secondNumber, ActionType.Plus, result));
 
@@ -26,17 +26,34 @@ namespace Calculator.Core
 
         public double Substract(double firstNumber, double secondNumber)
         {
-            throw new System.NotImplementedException();
+            var result = _core.Substract(firstNumber, secondNumber);
+
+            _repo.Save(new CalculationActionDto(firstNumber, secondNumber, ActionType.Minus, result));
+
+            return result;
         }
 
         public double Multiply(double firstNumber, double secondNumber)
         {
-            throw new System.NotImplementedException();
+            var result = _core.Multiply(firstNumber, secondNumber);
+
+            _repo.Save(new CalculationActionDto(firstNumber, secondNumber, ActionType.Multiply, result));
+
+            return result;
         }
 
         public bool TryDivide(double firstNumber, double secondNumber, out double result)
         {
-            throw new System.NotImplementedException();
+            if (secondNumber != 0)
+            {
+                result = firstNumber / secondNumber;
+
+                _repo.Save(new CalculationActionDto(firstNumber, secondNumber, ActionType.Divide, result));
+
+                return true;
+            }
+            result = 0;
+            return false;
         }
     }
 }
