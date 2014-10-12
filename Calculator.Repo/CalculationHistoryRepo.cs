@@ -2,14 +2,10 @@
 using System.Data;
 using System.Data.SqlClient;
 using Calculator.Entities;
+using Calculator.Repo.Abstract;
 
 namespace Calculator.Repo
 {
-    public interface ICalculationHistoryRepo
-    {
-        void Save(CalculationActionDto dto);
-    }
-
     public class CalculationHistoryRepo : ICalculationHistoryRepo
     {
         public void Save(CalculationActionDto dto)

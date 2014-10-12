@@ -47,6 +47,10 @@
       <Project>{E6916D53-9332-439B-8D15-85CB423286E3}</Project>
       <Name>Calculator.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Calculator.Repo.Abstract\Calculator.Repo.Abstract.csproj">
+      <Project>{2B076642-E4FD-4B18-A2D1-789986520823}</Project>
+      <Name>Calculator.Repo.Abstract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

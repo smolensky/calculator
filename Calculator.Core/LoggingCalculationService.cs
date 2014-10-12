@@ -1,5 +1,6 @@
 using Calculator.Entities;
 using Calculator.Repo;
+using Calculator.Repo.Abstract;
 
 namespace Calculator.Core
 {
