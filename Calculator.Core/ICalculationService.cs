@@ -1,3 +1,5 @@
+using System;
+
 namespace Calculator.Core
 {
     public interface ICalculationService
@@ -5,6 +7,6 @@ namespace Calculator.Core
         double Add(double firstNumber, double secondNumber);
         double Substract(double firstNumber, double secondNumber);
         double Multiply(double firstNumber, double secondNumber);
-        bool TryDivide(double firstNumber, double secondNumber, out double result);
+        bool TryDivide(double firstNumber, double secondNumber, out double? result);
     }
 }

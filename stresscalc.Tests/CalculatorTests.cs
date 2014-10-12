@@ -6,7 +6,7 @@ namespace stresscalc.Tests
     public class CalculatorTests
     {
         private readonly CalculationService  _calculator = new CalculationService();
-        double _actual;
+        double? _actual;
         [Fact]
         private void Should_substract_second_number_from_first_number_Always()
         {
@@ -46,11 +46,11 @@ namespace stresscalc.Tests
         }
 
         [Fact]
-        private void Should_return_zero_When_second_number_is_zero()
+        private void Should_return_null_When_second_number_is_zero()
         {
             _calculator.TryDivide(10, 0, out _actual);
 
-            Assert.Equal(0, _actual);
+            Assert.Equal(null, _actual);
         }
     }
 }

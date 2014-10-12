@@ -42,18 +42,13 @@ namespace Calculator.Core
             return result;
         }
 
-        public bool TryDivide(double firstNumber, double secondNumber, out double result)
+        public bool TryDivide(double firstNumber, double secondNumber, out double? result)
         {
-            if (secondNumber != 0)
-            {
-                result = firstNumber / secondNumber;
+            bool divisionSucceeded = _core.TryDivide(firstNumber, secondNumber, out result);
 
-                _repo.Save(new CalculationActionDto(firstNumber, secondNumber, ActionType.Divide, result));
+            _repo.Save(new CalculationActionDto(firstNumber, secondNumber, ActionType.Divide, result));
 
-                return true;
-            }
-            result = 0;
-            return false;
+            return divisionSucceeded;
         }
     }
 }

@@ -5,7 +5,7 @@
         public CalculationActionDto(double firstNumber,
             double secondNumber,
             ActionType actionType,
-            double result)
+            double? result)
         {
             FirstNumber = firstNumber;
             SecondNumber = secondNumber;
@@ -19,6 +19,6 @@
 
         public ActionType ActionType { get; private set; }
 
-        public double Result { get; private set; }
+        public double? Result { get; private set; }
     }
 }

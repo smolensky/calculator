@@ -17,7 +17,7 @@ namespace Calculator.Core
             return firstNumber * secondNumber;
         }
 
-        public bool TryDivide(double firstNumber, double secondNumber, out double result)
+        public bool TryDivide(double firstNumber, double secondNumber, out double? result)
         {
             if (secondNumber != 0)
             {
@@ -26,7 +26,7 @@ namespace Calculator.Core
                 return true;
             }
 
-            result = 0;
+            result = null;
 
             return false;
         }

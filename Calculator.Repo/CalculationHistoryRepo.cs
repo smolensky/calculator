@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using Calculator.Entities;
 
@@ -28,12 +29,12 @@ namespace Calculator.Repo
                 new SqlParameter("FirstNumber", dto.FirstNumber),
                 new SqlParameter("SecondNumber", dto.SecondNumber),
                 new SqlParameter("ActionTypeId", dto.ActionType),
-                new SqlParameter("Result", dto.Result)
+                new SqlParameter("Result", dto.Result ?? (object)DBNull.Value )
             });
 
             connection.Open();
 
-            command.ExecuteNonQuery(); // TODO
+            command.ExecuteNonQuery();
 
             connection.Close();
         }

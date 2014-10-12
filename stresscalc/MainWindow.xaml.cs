@@ -175,10 +175,10 @@ namespace stresscalc
                         _currentValue = _calculationService.Multiply(_currentValue, inputValue);
                         break;
                     case Sign.Divide:
-                        double divisionResult;
+                        double? divisionResult;
 
-                        if (_calculationService.TryDivide(_currentValue, inputValue, out divisionResult))
-                            _currentValue = divisionResult;
+                        if (_calculationService.TryDivide(_currentValue, inputValue, out divisionResult) && divisionResult != null)
+                            _currentValue = (double) divisionResult;
                         else
                             MessageBox.Show("Division by zero");
 

@@ -39,9 +39,9 @@ namespace MvcCalculator.Controllers
                         .ToString(CultureInfo.InvariantCulture);
                     break;
                 case "/":
-                    double divisionResult;
+                    double? divisionResult;
                     result = calculationService.TryDivide(viewModel.FirstNumber, viewModel.SecondNumber,
-                        out divisionResult) ? divisionResult.ToString(CultureInfo.InvariantCulture) : "Division by zero";
+                        out divisionResult) ? divisionResult.ToString() : "Division by zero";
                     break;
             }
 
