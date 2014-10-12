@@ -1,6 +1,8 @@
 ﻿using System.Globalization;
 using System.Web.Mvc;
 using Calculator.Repo;
+using Calculator.Repo.Abstract;
+using Calculator.Repo.EntityFramework;
 using MvcCalculator.Models;
 
 using  Calculator.Core;
@@ -9,18 +11,24 @@ namespace MvcCalculator.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ICalculationHistoryRepo _calculationHistoryRepo
+            = new AdoNetCalculationHistoryRepo();
+
         [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.CalculationHistory = _calculationHistoryRepo.Load();
+            
             return View();
         }
 
         [HttpPost]
         public ActionResult Index(CalcViewModel viewModel)
         {
+            
             var calculationService = new LoggingCalculationService(
                         new CalculationService(),
-                        new CalculationHistoryRepo());
+                        _calculationHistoryRepo);
 
             string result = string.Empty;
 
@@ -45,8 +53,7 @@ namespace MvcCalculator.Controllers
                     break;
             }
 
-            ViewBag.Result = result;
-
+            ViewBag.CalculationResult = result;
             
             return View();
         }

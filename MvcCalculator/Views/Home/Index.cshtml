@@ -1,4 +1,7 @@
-﻿@model MvcCalculator.Models.CalcViewModel
+﻿@using System.Globalization
+@using Calculator.Entities
+@using MvcCalculator.Models
+@model MvcCalculator.Models.CalcViewModel
 
 @{
     Layout = null;
@@ -25,8 +28,23 @@
     </div>
     <div>
         <p>
-            @ViewBag.Result
+            @ViewBag.CalculationResult
         </p>
+    </div>
+    <div>
+        <table style="width:100%;">
+            @foreach (CalculationActionDto record in ViewBag.CalculationHistory)
+            {
+                <tr>
+                    <td>@record.FirstNumber</td>
+                    <td>@record.ActionType</td>
+                    <td>@record.SecondNumber</td>
+                    <td>@(record.Result.HasValue
+                        ? record.Result.Value.ToString(CultureInfo.InvariantCulture)
+                        : "Division by zero")</td>
+                </tr>    
+            }
+        </table>
     </div>
 </body>
 </html>

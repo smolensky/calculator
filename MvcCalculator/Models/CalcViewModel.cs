@@ -5,6 +5,6 @@
         public double FirstNumber { get; set; }
         public double SecondNumber { get; set; }
         public string Action { get; set; }
-        public bool Result { get; set; }
+        public double? Result { get; set; }
     }
 }
