@@ -36,7 +36,7 @@ namespace Calculator.Repo
             connection.Close();
         }
 
-        public ICollection<CalculationActionDto> Load()
+        public IList<CalculationActionDto> Load()
         {
             var connection = new SqlConnection(
                 "Data Source=.\\SQLEXPRESS;" +

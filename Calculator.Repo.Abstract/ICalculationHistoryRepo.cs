@@ -7,6 +7,6 @@ namespace Calculator.Repo.Abstract
     {
         void Save(CalculationActionDto dto);
 
-        ICollection<CalculationActionDto> Load();
+        IList<CalculationActionDto> Load();
     }
 }

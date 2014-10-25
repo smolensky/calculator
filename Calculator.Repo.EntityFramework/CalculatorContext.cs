@@ -1,11 +1,8 @@
 namespace Calculator.Repo.EntityFramework
 {
-    using System;
     using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
 
-    public partial class CalculatorContext : DbContext
+    public class CalculatorContext : DbContext
     {
         public CalculatorContext()
             : base("name=CalculatorContext")

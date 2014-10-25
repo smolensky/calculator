@@ -12,7 +12,7 @@ namespace MvcCalculator.Controllers
     public class HomeController : Controller
     {
         private readonly ICalculationHistoryRepo _calculationHistoryRepo
-            = new AdoNetCalculationHistoryRepo();
+            = new EntityFrameworkCalculationHistoryRepo();
 
         [HttpGet]
         public ActionResult Index()
@@ -54,7 +54,9 @@ namespace MvcCalculator.Controllers
             }
 
             ViewBag.CalculationResult = result;
-            
+
+            ViewBag.CalculationHistory = _calculationHistoryRepo.Load();
+
             return View();
         }
 

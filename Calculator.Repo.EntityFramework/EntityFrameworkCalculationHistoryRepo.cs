@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Common.CommandTrees;
+using System.Globalization;
+using System.Linq;
 using Calculator.Entities;
 using Calculator.Repo.Abstract;
 
@@ -8,6 +9,7 @@ namespace Calculator.Repo.EntityFramework
 {
     public class EntityFrameworkCalculationHistoryRepo : ICalculationHistoryRepo
     {
+
         public void Save(CalculationActionDto dto)
         {
             using (var db = new CalculatorContext())
@@ -28,9 +30,29 @@ namespace Calculator.Repo.EntityFramework
             }
         }
 
-        public ICollection<CalculationActionDto> Load()
+        public IList<CalculationActionDto> Load()
         {
-            throw new NotImplementedException();
+            using (var db = new CalculatorContext())
+            {
+                IEnumerable<CalculationActionDto> calculationActionDtos
+                    = db.CalculationHistories.AsEnumerable().Select(ch =>
+                        new CalculationActionDto((double)ch.FirstNumber,
+                            (double)ch.SecondNumber,
+                            Entities.ActionType.Plus,
+                            //(Entities.ActionType)Enum.Parse(typeof(ActionType), ch.ActionType.ActionType1), 
+                            (double?) ch.Result));
+
+
+                return calculationActionDtos.ToList();
+
+                //foreach (var item in query)
+                //{
+                //        calculationHistories.Add(item.FirstNumber.ToString(CultureInfo.InvariantCulture));
+                //        calculationHistories.Add(item.ActionType.ToString());
+                //        calculationHistories.Add(item.SecondNumber.ToString(CultureInfo.InvariantCulture));
+                //        calculationHistories.Add(item.Result.ToString());
+                //}
+            }
         }
     }
 }

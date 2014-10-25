@@ -1,13 +1,10 @@
 namespace Calculator.Repo.EntityFramework
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("CalculationHistory")]
-    public partial class CalculationHistory
+    public class CalculationHistory
     {
         public int Id { get; set; }
 
